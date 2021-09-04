@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Nasa.MarsMission.Rovers.Core\Nasa.MarsMission.Rovers.Core.csproj" />
+    </ItemGroup>
+
+</Project>
