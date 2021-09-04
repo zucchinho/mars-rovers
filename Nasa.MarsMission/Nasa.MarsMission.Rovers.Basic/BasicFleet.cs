@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using Nasa.MarsMission.Rovers.Core.Agent;
 using Nasa.MarsMission.Rovers.Core.Description.Terrain;
 using Nasa.MarsMission.Rovers.Core.Fleet;
 
@@ -32,14 +34,8 @@ namespace Nasa.MarsMission.Rovers.Basic
             return this.FirstOrDefault(r => r.Ready);
         }
 
-        protected override BasicRover InterpretCommandAndSend(string command)
+        protected override IEnumerable<RoverAction> InterpretCommand(string command)
         {
-            if (ActiveRover == default(BasicRover))
-            {
-                throw new InvalidOperationException(
-                    "There are no active rovers");
-            }
-            
             var steps = command.ToCharArray();
 
             if (!steps.All(s => PermittedChars.Contains(s)))
@@ -47,33 +43,20 @@ namespace Nasa.MarsMission.Rovers.Basic
                 throw new ArgumentException(
                     $"Command string must contain only 'M', 'L', 'R'. Command received: {command}");
             }
-
+            
             foreach (var step in steps)
             {
-                switch (step)
+                var action = step switch
                 {
-                    case 'L':
-                        ActiveRover.Rotate(90);
-                        break;
-                    case 'R':
-                        ActiveRover.Rotate(-90);
-                        break;
-                    case 'M':
-                        ActiveRover.Move(1);
-                        break;
-                }
-            }
+                    'L' => new RoverAction {Type = ActionType.Rotate, Value = 90},
+                    'R' => new RoverAction {Type = ActionType.Rotate, Value = -90},
+                    'M' => new RoverAction {Type = ActionType.Move, Value = 1},
+                    _ => throw new ArgumentException(
+                        $"Command string must contain only 'M', 'L', 'R'. Command received: {command}")
+                };
 
-            if (Terrain.IsOutOfBounds(ActiveRover.Position))
-            {
-                throw new InvalidOperationException(
-                    "The specified command moves the rover to a position out of the bounds of the terrain.");
+                yield return action;
             }
-            
-            ActiveRover.CommandsProcessed++;
-            ActiveRover.Ready = false;
-            
-            return ActiveRover;
         }
     }
 }

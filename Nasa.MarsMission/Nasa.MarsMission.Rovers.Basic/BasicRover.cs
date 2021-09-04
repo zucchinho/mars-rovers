@@ -1,14 +1,9 @@
 ﻿using System;
-using Nasa.MarsMission.Rovers.Core.Fleet;
 
 namespace Nasa.MarsMission.Rovers.Basic
 {
-    public class BasicRover : CartesianFlatRover, IDeployedRover
+    public class BasicRover : CartesianFlatRover
     {
-        public string Designation { get; set; }
-        public bool Ready { get; set; }
-        public int CommandsProcessed { get; set; }
-
         protected override int[] GetTranslation(int magnitude)
         {
             // we could process negatives, but given the basic implementation, we'll simply throw

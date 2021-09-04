@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Nasa.MarsMission.Rovers.Core.Agent;
 using Nasa.MarsMission.Rovers.Core.Description.Terrain;
 
 namespace Nasa.MarsMission.Rovers.Core.Fleet
@@ -34,13 +35,37 @@ namespace Nasa.MarsMission.Rovers.Core.Fleet
                 throw new InvalidOperationException(
                     "There are no rovers deployed.");
             }
+
+            var rover = ActiveRover;
             
-            return InterpretCommandAndSend(command);
+            if (rover == null)
+            {
+                throw new InvalidOperationException(
+                    "There are no active rovers");
+            }
+            
+            var actions = InterpretCommand(command);
+
+            foreach (var action in actions)
+            {
+                rover.Receive(action);
+            }
+
+            if (Terrain.IsOutOfBounds(rover.Position))
+            {
+                throw new InvalidOperationException(
+                    "The specified command moves the rover to a position out of the bounds of the terrain.");
+            }
+            
+            rover.CommandsProcessed++;
+            rover.Ready = false;
+            
+            return rover;
         }
 
         public TTerrain Terrain { get; set; }
         protected abstract TRover GetRoverImplementation(int[] position, int bearing);
         protected abstract TRover GetActiveRover();
-        protected abstract TRover InterpretCommandAndSend(string command);
+        protected abstract IEnumerable<RoverAction> InterpretCommand(string command);
     }
 }

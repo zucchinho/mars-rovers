@@ -1,10 +1,11 @@
 ﻿using Nasa.MarsMission.Rovers.Core.Agent;
+using Nasa.MarsMission.Rovers.Core.Fleet;
 
 namespace Nasa.MarsMission.Rovers.Basic
 {
-    public abstract class CartesianFlatRover : IRover
+    public abstract class CartesianFlatRover : BaseDeployedRover
     {
-        public int[] Move(int magnitude)
+        public override int[] Move(int magnitude)
         {
             var vector = GetTranslation(magnitude);
 
@@ -14,7 +15,7 @@ namespace Nasa.MarsMission.Rovers.Basic
             return Position;
         }
 
-        public int Rotate(int angleOfRotation)
+        public override int Rotate(int angleOfRotation)
         {
             return CalculateBearing(angleOfRotation);
         }
@@ -22,7 +23,6 @@ namespace Nasa.MarsMission.Rovers.Basic
         protected abstract int[] GetTranslation(int magnitude);
         protected abstract int CalculateBearing(int angleOfRotation);
 
-        public int[] Position { get; set; } = {0, 0};
-        public int Bearing { get; set; }
+        public override int[] Position { get; set; } = {0, 0};
     }
 }

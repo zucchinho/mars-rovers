@@ -2,7 +2,7 @@
 
 namespace Nasa.MarsMission.Rovers.Core.Agent
 {
-    public interface IRover : IMover, IRotator, IRoverLocation
+    public interface IRover : IMover, IRotator
     {
     }
 }
