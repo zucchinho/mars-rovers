@@ -1,4 +1,4 @@
-﻿namespace Nasa.MarsMission.Rovers.Core
+﻿namespace Nasa.MarsMission.Rovers.Core.Description
 {
     public interface IRoverDetails
     {

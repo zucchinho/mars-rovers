@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Linq;
 using Nasa.MarsMission.Rovers.Core;
+using Nasa.MarsMission.Rovers.Core.Description.Terrain;
+using Nasa.MarsMission.Rovers.Core.Fleet;
 
 namespace Nasa.MarsMission.Rovers.Basic
 {
-    public class BasicFleet : BaseCommandFleet<BasicRover>
+    public class BasicFleet : BaseCommandFleet<BasicRover, ITerrainSize>
     {
         private static readonly char[] PermittedChars = {'M', 'R', 'L'};
             

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7eae3a4e-d9e3-41be-b829-e1cb29258f11" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <changedPaths>
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/ITerrainDetails.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/ICommandFleet.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/IDeployedFleet.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/BaseCommandFleet.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Basic/BasicFleet.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/ITerrainSize.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/IDeployedRover.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Agent/IMover.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Agent/IRotator.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Agent/IRover.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Description/Terrain/ITerrainSize.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/IRoverFleet.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Description/IRoverDetails.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Description/IRoverLocation.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/BaseCommandFleet.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/ICommandFleet.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/IDeployedFleet.cs" />
+    </changedPaths>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>

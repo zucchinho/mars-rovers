@@ -1,5 +1,6 @@
 ﻿using System;
 using Nasa.MarsMission.Rovers.Core;
+using Nasa.MarsMission.Rovers.Core.Agent;
 
 namespace Nasa.MarsMission.Rovers.Basic
 {

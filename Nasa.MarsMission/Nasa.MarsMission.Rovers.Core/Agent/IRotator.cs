@@ -1,4 +1,4 @@
-﻿namespace Nasa.MarsMission.Rovers.Core
+﻿namespace Nasa.MarsMission.Rovers.Core.Agent
 {
     public interface IRotator
     {

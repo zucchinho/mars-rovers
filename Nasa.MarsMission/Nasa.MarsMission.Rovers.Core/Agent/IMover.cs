@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Nasa.MarsMission.Rovers.Core
+﻿namespace Nasa.MarsMission.Rovers.Core.Agent
 {
     public interface IMover
     {
