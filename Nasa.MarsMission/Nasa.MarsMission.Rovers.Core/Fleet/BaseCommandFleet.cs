@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Nasa.MarsMission.Rovers.Core.Description.Terrain;
 
 namespace Nasa.MarsMission.Rovers.Core.Fleet
@@ -12,6 +14,12 @@ namespace Nasa.MarsMission.Rovers.Core.Fleet
 
         public TRover Deploy(int[] position, int bearing)
         {
+            if (Terrain == null)
+            {
+                throw new InvalidOperationException(
+                    "Unable to deploy rover. Terrain has not been set");
+            }
+            
             var newRover = GetRoverImplementation(position, bearing);
             
             Add(newRover);
@@ -21,17 +29,18 @@ namespace Nasa.MarsMission.Rovers.Core.Fleet
 
         public TRover Send(string command)
         {
+            if (Count < 1)
+            {
+                throw new InvalidOperationException(
+                    "There are no rovers deployed.");
+            }
+            
             return InterpretCommandAndSend(command);
         }
-        
-        public void SetTerrain(TTerrain terrain)
-        {
-            TerrainSize = terrain;
-        }
 
+        public TTerrain Terrain { get; set; }
         protected abstract TRover GetRoverImplementation(int[] position, int bearing);
         protected abstract TRover GetActiveRover();
         protected abstract TRover InterpretCommandAndSend(string command);
-        public ITerrainSize TerrainSize { get; private set; }
     }
 }

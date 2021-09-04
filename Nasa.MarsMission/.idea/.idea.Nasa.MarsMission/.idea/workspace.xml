@@ -13,7 +13,6 @@
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/ICommandFleet.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/IDeployedFleet.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/BaseCommandFleet.cs" />
-      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Basic/BasicFleet.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/ITerrainSize.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/IDeployedRover.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Agent/IMover.cs" />
@@ -23,9 +22,11 @@
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/IRoverFleet.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Description/IRoverDetails.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Description/IRoverLocation.cs" />
-      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/BaseCommandFleet.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/ICommandFleet.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/IDeployedFleet.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/BaseCommandFleet.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Basic/BasicFleet.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Basic/BasicRover.cs" />
     </changedPaths>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using Nasa.MarsMission.Rovers.Core;
 using Nasa.MarsMission.Rovers.Core.Description.Terrain;
 using Nasa.MarsMission.Rovers.Core.Fleet;
 
@@ -12,6 +11,13 @@ namespace Nasa.MarsMission.Rovers.Basic
             
         protected override BasicRover GetRoverImplementation(int[] position, int bearing)
         {
+            if (Terrain.IsOutOfBounds(position))
+            {
+                throw new ArgumentOutOfRangeException(
+                    nameof(position),
+                    $"The initial position is out of the bounds of the terrain. Initial position: ({position[0]}, {position[1]})");
+            }
+            
             return new BasicRover
             {
                 Ready = true,
@@ -28,6 +34,12 @@ namespace Nasa.MarsMission.Rovers.Basic
 
         protected override BasicRover InterpretCommandAndSend(string command)
         {
+            if (ActiveRover == default(BasicRover))
+            {
+                throw new InvalidOperationException(
+                    "There are no active rovers");
+            }
+            
             var steps = command.ToCharArray();
 
             if (!steps.All(s => PermittedChars.Contains(s)))
@@ -52,6 +64,12 @@ namespace Nasa.MarsMission.Rovers.Basic
                 }
             }
 
+            if (Terrain.IsOutOfBounds(ActiveRover.Position))
+            {
+                throw new InvalidOperationException(
+                    "The specified command moves the rover to a position out of the bounds of the terrain.");
+            }
+            
             ActiveRover.CommandsProcessed++;
             ActiveRover.Ready = false;
             
