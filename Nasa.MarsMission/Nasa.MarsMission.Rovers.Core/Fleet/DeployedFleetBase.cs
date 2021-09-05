@@ -7,6 +7,12 @@ using Nasa.MarsMission.Rovers.Core.Description.Terrain;
 
 namespace Nasa.MarsMission.Rovers.Core.Fleet
 {
+    /// <summary>
+    /// A deployed fleet of rovers
+    /// </summary>
+    /// <typeparam name="TRover">The type of rover.</typeparam>
+    /// <typeparam name="TStatus">The type of rover status.</typeparam>
+    /// <typeparam name="TTerrain">The type of terrain.</typeparam>
     public abstract class DeployedFleetBase<TRover, TStatus, TTerrain>
         : InputReceiverBase<FleetInstruction, IReadOnlyList<string>>, IDeployedFleet<TRover>
         where TRover : IDeployedRover<TStatus>
@@ -14,15 +20,27 @@ namespace Nasa.MarsMission.Rovers.Core.Fleet
     {
         private readonly List<TRover> _rovers = new List<TRover>();
         
+        public IReadOnlyCollection<TRover> Rovers => _rovers;
+        
+        /// <summary>
+        /// The pattern for valid Deploy commands
+        /// </summary>
         protected abstract Regex DeployRoverPattern { get; }
+        
+        /// <summary>
+        /// The pattern for valid Instruct commands
+        /// </summary>
         protected abstract Regex InstructRoverPattern { get; }
 
         private TRover ActiveRover => GetActiveRover();
-
-        public IReadOnlyCollection<TRover> Rovers => _rovers;
-
         private TTerrain Terrain { get; set; }
 
+        /// <summary>
+        /// Interprets input as a sequence of fleet instructions
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <returns>The fleet instructions.</returns>
+        /// <exception cref="ArgumentException"></exception>
         protected override IEnumerable<FleetInstruction> Interpret(
             IReadOnlyList<string> input)
         {
@@ -62,6 +80,12 @@ namespace Nasa.MarsMission.Rovers.Core.Fleet
             }
         }
 
+        /// <summary>
+        /// Executes a fleet instruction
+        /// </summary>
+        /// <param name="instruction">The instruction.</param>
+        /// <exception cref="InvalidOperationException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         protected override void Execute(FleetInstruction instruction)
         {
             if (instruction.Type != InstructionType.SetTerrain)
@@ -90,11 +114,38 @@ namespace Nasa.MarsMission.Rovers.Core.Fleet
             }
         }
         
+        /// <summary>
+        /// Get an instance of a rover for deployment
+        /// </summary>
+        /// <param name="roverStatus"></param>
+        /// <returns>A rover instance.</returns>
         protected abstract TRover GetRoverInstance(TStatus roverStatus);
+        
+        /// <summary>
+        /// Gets the active rover, to be instructed.
+        /// </summary>
+        /// <returns>The active rover instance.</returns>
         protected abstract TRover GetActiveRover();
+        
+        /// <summary>
+        /// Extracts the rover status from the input
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <returns>The extracted status.</returns>
         protected abstract TStatus ExtractRoverStatus(string input);
+        
+        /// <summary>
+        /// Extracts the terrain spec from the input
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <returns>The terrain spec.</returns>
         protected abstract TTerrain ExtractTerrain(string input);
 
+        /// <summary>
+        /// Deploy a rover to the environment
+        /// </summary>
+        /// <param name="instruction">The instruction corresponding to the initial rover status.</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         private void DeployRover(string instruction)
         {
             // extract the initial rover status from the instruction
@@ -112,6 +163,11 @@ namespace Nasa.MarsMission.Rovers.Core.Fleet
             _rovers.Add(GetRoverInstance(roverStatus));
         }
 
+        /// <summary>
+        /// Issues an instruction to the active rover
+        /// </summary>
+        /// <param name="instruction">The instruction.</param>
+        /// <exception cref="InvalidOperationException"></exception>
         private void InstructRover(string instruction)
         {
             if (Rovers.Count < 1)

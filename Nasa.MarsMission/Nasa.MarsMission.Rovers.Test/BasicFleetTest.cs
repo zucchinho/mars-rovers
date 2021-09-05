@@ -8,6 +8,12 @@ namespace Nasa.MarsMission.Rovers.Test
 {
     public class BasicFleetTest
     {
+        /// <summary>
+        /// Test the successfully issuing commands to the fleet
+        /// </summary>
+        /// <param name="commands"></param>
+        /// <param name="expectedOutputLines"></param>
+        /// <param name="roverCount"></param>
         [Theory]
         [InlineData(new[] {"10 10"}, new[] {""}, 0)]
         [InlineData(new[] {"20 20", "10 10 N"}, new[] {"10 10 N"}, 1)]
@@ -41,6 +47,10 @@ namespace Nasa.MarsMission.Rovers.Test
             fleet.ToString().Should().Be(expectedOutput);
         }
 
+        /// <summary>
+        /// Test that the fleet correctly identifies out of bound states
+        /// </summary>
+        /// <param name="commands"></param>
         [Theory]
         [InlineData("10 10", "20 20")]
         [InlineData("20 20", "21 5")]

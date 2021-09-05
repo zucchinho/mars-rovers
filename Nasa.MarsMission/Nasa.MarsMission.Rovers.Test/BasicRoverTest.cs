@@ -9,6 +9,14 @@ namespace Nasa.MarsMission.Rovers.Test
 {
     public class BasicRoverTest
     {
+        /// <summary>
+        /// Test sending a load of instructions to a rover instance
+        /// </summary>
+        /// <param name="initialBearing"></param>
+        /// <param name="initialPosition"></param>
+        /// <param name="input"></param>
+        /// <param name="expectedFinalBearing"></param>
+        /// <param name="expectedFinalPosition"></param>
         [Theory]
         // move
         [InlineData(0, new[] {0, 0}, "M", 0, new[] {1, 0})]

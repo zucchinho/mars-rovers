@@ -1,5 +1,9 @@
 namespace Nasa.MarsMission.Rovers.Core.Description.Terrain
 {
+    /// <summary>
+    /// Represents terrain for exploration
+    /// </summary>
+    /// <typeparam name="TRoverStatus">The type of rover status.</typeparam>
     public interface ITerrain<in TRoverStatus>
     {
         /// <summary>
