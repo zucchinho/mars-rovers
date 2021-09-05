@@ -1,0 +1,59 @@
+using System;
+using System.Text;
+using FluentAssertions;
+using Nasa.MarsMission.Rovers.Basic;
+using Xunit;
+
+namespace Nasa.MarsMission.Rovers.Test
+{
+    public class BasicFleetTest
+    {
+        [Theory]
+        [InlineData(new[] {"10 10"}, new[] {""}, 0)]
+        [InlineData(new[] {"20 20", "10 10 N"}, new[] {"10 10 N"}, 1)]
+        [InlineData(new[] {"20 20", "10 10 N", "RMMM"}, new[] {"13 10 E"}, 1)]
+        // challenge i/o
+        [InlineData(
+            new[] {"5 5", "1 2 N", "LMLMLMLMM", "3 3 E", "MMRMMRMRRM"},  
+            new[] {"1 3 N", "5 1 E"},
+            2)]
+        public void Receive_should_correctly_interpret_commands(
+            string[] commands,
+            string[] expectedOutputLines,
+            int roverCount)
+        {
+            // arrange
+            var fleet = new BasicFleet();
+            var sb = new StringBuilder();
+
+            foreach (var outputLine in expectedOutputLines)
+            {
+                sb.AppendLine(outputLine);
+            }
+
+            var expectedOutput = sb.ToString().Trim();
+
+            // act
+            fleet.Receive(commands);
+
+            // assert
+            fleet.Rovers.Count.Should().Be(roverCount);
+            fleet.ToString().Should().Be(expectedOutput);
+        }
+
+        [Theory]
+        [InlineData("10 10", "20 20")]
+        [InlineData("20 20", "21 5")]
+        [InlineData("20 20", "5 21")]
+        [InlineData("20 20", "5 -5")]
+        public void Deploy_should_throw_if_initial_position_out_of_bounds(
+            params string[] commands)
+        {
+            // arrange
+            var fleet = new BasicFleet();
+
+            // act/assert
+            Assert.Throws<ArgumentException>(()=> fleet.Receive(commands));
+        }
+    }
+}

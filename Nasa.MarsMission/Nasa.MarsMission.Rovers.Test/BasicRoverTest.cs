@@ -2,6 +2,7 @@ using System;
 using FluentAssertions;
 using Nasa.MarsMission.Rovers.Basic;
 using Nasa.MarsMission.Rovers.Core.Agent;
+using Nasa.MarsMission.Rovers.Core.Description;
 using Xunit;
 
 namespace Nasa.MarsMission.Rovers.Test
@@ -9,139 +10,49 @@ namespace Nasa.MarsMission.Rovers.Test
     public class BasicRoverTest
     {
         [Theory]
-        [InlineData(0, new[] {0, 0}, 1, new[] {1, 0})]
-        [InlineData(0, new[] {0, 0}, 3, new[] {3, 0})]
-        [InlineData(90, new[] {3, 4}, 3, new[] {3, 7})]
-        [InlineData(180, new[] {10, 4}, 5, new[] {5, 4})]
-        [InlineData(270, new[] {10, 4}, 3, new[] {10, 1})]
-        public void Move_should_update_to_the_correct_position_given_initial_state(
+        // move
+        [InlineData(0, new[] {0, 0}, "M", 0, new[] {1, 0})]
+        [InlineData(0, new[] {0, 0}, "MMM", 0, new[] {3, 0})]
+        [InlineData(90, new[] {3, 4}, "MMM", 90, new[] {3, 7})]
+        [InlineData(180, new[] {10, 4}, "MMMMM", 180, new[] {5, 4})]
+        [InlineData(270, new[] {10, 4}, "MMM", 270, new[] {10, 1})]
+        // rotate
+        [InlineData(0, new[] {5, 7}, "L", 90, new[] {5, 7})]
+        [InlineData(0, new[] {5, 7}, "R", 270, new[] {5, 7})]
+        [InlineData(270, new[] {5, 7}, "L", 0, new[] {5, 7})]
+        [InlineData(180, new[] {5, 7}, "R", 90, new[] {5, 7})]
+        [InlineData(180, new[] {5, 7}, "LLL", 90, new[] {5, 7})]
+        [InlineData(270, new[] {5, 7}, "LLL", 180, new[] {5, 7})]
+        [InlineData(270, new[] {5, 7}, "RRRR", 270, new[] {5, 7})]
+        // combined
+        [InlineData(0, new[] {0, 0}, "LMMRMM", 0, new[] {2, 2})]
+        [InlineData(0, new[] {0, 0}, "MMMMMRMMRMM", 180, new[] {3, -2})]
+        [InlineData(270, new[] {10, 5}, "MMLMMRMMMMRMM", 180, new[] {10, -1})]
+        public void Receive_should_update_to_the_correct_state_given_initial_state(
             int initialBearing,
             int[] initialPosition,
-            int magnitude,
-            int[] expectedFinalPosition
-            )
-        {
-            // arrange
-            var rover = new BasicRover
-            {
-                Bearing = initialBearing,
-                Position = initialPosition
-            };
-
-            // act
-            var updatedPosition = rover.Move(magnitude);
-
-            // assert
-            updatedPosition.Should().Equal(expectedFinalPosition);
-            updatedPosition.Should().Equal(rover.Position);
-
-            rover.Bearing.Should().Be(initialBearing); // the bearing should not change
-        }
-
-        [Theory]
-        [InlineData(0)]
-        [InlineData(-1)]
-        [InlineData(-100)]
-        public void Move_should_throw_for_nonpositive_magnitude(int magnitude)
-        {
-            // arrange
-            var rover = new BasicRover();
-            
-            // act/assert
-            Assert.Throws<ArgumentOutOfRangeException>(() => rover.Move(magnitude));
-        }
-
-        [Theory]
-        [InlineData(10)]
-        [InlineData(361)]
-        [InlineData(-95)]
-        [InlineData(-1000)]
-        public void Move_should_throw_for_invalid_current_bearing(int initialBearing)
-        {
-            // arrange
-            var rover = new BasicRover
-            {
-                Bearing = initialBearing
-            };
-            
-            // act/assert
-            Assert.Throws<InvalidOperationException>(() => rover.Move(1));
-        }
-        
-        [Theory]
-        [InlineData(0, 90, 90)]
-        [InlineData(0, -90, 270)]
-        [InlineData(270, 90, 0)]
-        [InlineData(180, -90, 90)]
-        [InlineData(180, 270, 90)]
-        [InlineData(270, 270, 180)]
-        [InlineData(270, 360, 270)]
-        public void Rotate_should_update_to_the_correct_bearing_given_initial_state(
-            int initialBearing,
-            int angleOfRotation,
-            int expectedFinalBearing
-        )
-        {
-            // arrange
-            var initialPosition = new[] {4, 14};
-            var rover = new BasicRover
-            {
-                Bearing = initialBearing,
-                Position = initialPosition
-            };
-
-            // act
-            var updatedBearing = rover.Rotate(angleOfRotation);
-
-            // assert
-            updatedBearing.Should().Be(expectedFinalBearing);
-            updatedBearing.Should().Be(rover.Bearing);
-
-            rover.Position.Should().Equal(initialPosition); // position should not change
-        }
-
-        [Theory]
-        [InlineData(20)]
-        [InlineData(40)]
-        [InlineData(1000)]
-        [InlineData(-3)]
-        public void Rotate_should_throw_for_non_90_degree_rotations(int angleOfRotation)
-        {
-            // arrange
-            var rover = new BasicRover();
-            
-            // act/assert
-            Assert.Throws<ArgumentOutOfRangeException>(() => rover.Rotate(angleOfRotation));
-        }
-        
-        [Theory]
-        [InlineData(0, new[] {0, 0}, ActionType.Move, 1, 0, new[] {1, 0})]
-        [InlineData(90, new[] {6, 23}, ActionType.Move, 5, 90, new[] {6, 28})]
-        [InlineData(180, new[] {6, 23}, ActionType.Rotate, -90, 90, new[] {6, 23})]
-        [InlineData(270, new[] {6, 23}, ActionType.Rotate, 270, 180, new[] {6, 23})]
-        public void Receive_should_correctly_process_action_given_initial_state(
-            int initialBearing,
-            int[] initialPosition,
-            ActionType actionType,
-            int actionValue,
+            string input,
             int expectedFinalBearing,
             int[] expectedFinalPosition
         )
         {
             // arrange
-            var rover = new BasicRover
+            var status = new RoverLocation
             {
                 Bearing = initialBearing,
                 Position = initialPosition
             };
-            var roverAction = new RoverAction {Type = actionType, Value = actionValue};
+            var rover = new BasicRover
+            {
+                Status = status
+            };
 
             // act
-            rover.Receive(roverAction);
+            rover.Receive(input);
 
             // assert
-            rover.Position.Should().Equal(expectedFinalPosition);
-            rover.Bearing.Should().Be(expectedFinalBearing);
+            rover.Status.Position.Should().Equal(expectedFinalPosition);
+            rover.Status.Bearing.Should().Be(expectedFinalBearing);
         }
     }
 }

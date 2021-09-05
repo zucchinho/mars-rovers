@@ -1,62 +1,99 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Nasa.MarsMission.Rovers.Core.Agent;
-using Nasa.MarsMission.Rovers.Core.Description.Terrain;
+using System.Text.RegularExpressions;
+using Nasa.MarsMission.Rovers.Basic.Helpers;
 using Nasa.MarsMission.Rovers.Core.Fleet;
 
 namespace Nasa.MarsMission.Rovers.Basic
 {
-    public class BasicFleet : BaseCommandFleet<BasicRover, ITerrainSize>
+    public class BasicFleet : DeployedFleetBase<BasicRover, RoverLocation, BasicGridTerrain>
     {
-        private static readonly char[] PermittedChars = {'M', 'R', 'L'};
-            
-        protected override BasicRover GetRoverImplementation(int[] position, int bearing)
+        protected override Regex DeployRoverPattern => new Regex(@"^\d+ \d+ [NESW]{1}$");
+        protected override Regex InstructRoverPattern => new Regex(@"^[LRM]+$");
+        
+        protected override BasicRover GetRoverInstance(RoverLocation roverStatus)
         {
-            if (Terrain.IsOutOfBounds(position))
-            {
-                throw new ArgumentOutOfRangeException(
-                    nameof(position),
-                    $"The initial position is out of the bounds of the terrain. Initial position: ({position[0]}, {position[1]})");
-            }
-            
             return new BasicRover
             {
                 Ready = true,
-                Position = position,
-                Bearing = bearing,
+                Status = roverStatus,
                 Designation = Guid.NewGuid().ToString()
             };
         }
 
         protected override BasicRover GetActiveRover()
         {
-            return this.FirstOrDefault(r => r.Ready);
+            return Rovers.FirstOrDefault(r => r.Ready);
         }
 
-        protected override IEnumerable<RoverAction> InterpretCommand(string command)
+        protected override RoverLocation ExtractRoverStatus(string input)
         {
-            var steps = command.ToCharArray();
+            // input should be 2 numbers for location, 1 for bearing e.g. "1 5 S"
+            var elements = input.Split(' ');
 
-            if (!steps.All(s => PermittedChars.Contains(s)))
+            if (elements.Length != 3)
             {
                 throw new ArgumentException(
-                    $"Command string must contain only 'M', 'L', 'R'. Command received: {command}");
+                    $"Input is invalid for rover status. Input: {input}",
+                    nameof(input));
             }
-            
-            foreach (var step in steps)
-            {
-                var action = step switch
-                {
-                    'L' => new RoverAction {Type = ActionType.Rotate, Value = 90},
-                    'R' => new RoverAction {Type = ActionType.Rotate, Value = -90},
-                    'M' => new RoverAction {Type = ActionType.Move, Value = 1},
-                    _ => throw new ArgumentException(
-                        $"Command string must contain only 'M', 'L', 'R'. Command received: {command}")
-                };
 
-                yield return action;
+            var positionElements = elements.Take(2);
+            var position = ExtractPosition(positionElements.ToArray());            
+
+            var directionElement = elements.Skip(2).SingleOrDefault();
+
+            if (directionElement == null || directionElement.Length != 1)
+            {
+                throw new ArgumentException(
+                    $"Input is invalid for rover status. Input: {input}",
+                    nameof(input));
             }
+
+            return new RoverLocation
+            {
+                Position = position,
+                Bearing = OrientationHelpers.ConvertFromCompassDirection(directionElement)
+            };
+        }
+
+        protected override BasicGridTerrain ExtractTerrain(string input)
+        {
+            // input should be 2 numbers, corresponding to a map point e.g. "5 5"
+            var elements = input.Split(' ');
+            
+            if (elements.Length != 2)
+            {
+                throw new ArgumentException(
+                    $"Input is invalid for rover status. Input: {input}",
+                    nameof(input));
+            }
+
+            return new BasicGridTerrain
+            {
+                Dimensions = ExtractPosition(elements)
+            };
+        }
+
+        private static int[] ExtractPosition(IReadOnlyList<string> positionElements)
+        {
+            var position = new int[2];
+            for (var i = 0; i < 2; i++)
+            {
+                var positionElement = positionElements[i];
+                if (int.TryParse(positionElement, out var value))
+                {
+                    position[i] = value;
+                }
+                else
+                {
+                    throw new ArgumentException(
+                        $"Failed to convert position element to numeric value. Position element: {positionElement}");
+                }
+            }
+
+            return position;
         }
     }
 }

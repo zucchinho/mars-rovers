@@ -1,11 +1,10 @@
-using Nasa.MarsMission.Rovers.Core.Description.Terrain;
+using System.Collections.Generic;
 
 namespace Nasa.MarsMission.Rovers.Core.Fleet
 {
-    public interface IDeployedFleet<TRover, TTerrain> : ICommandFleet<TRover>
-        where TRover : IDeployedRover 
-        where TTerrain : ITerrainSize
+    public interface IDeployedFleet<out TRover> : IInputReceiver<IReadOnlyList<string>>
+        where TRover : IInputReceiver<string>
     {
-        TTerrain Terrain { get; set; }
+        IReadOnlyCollection<TRover> Rovers { get; }
     }
 }

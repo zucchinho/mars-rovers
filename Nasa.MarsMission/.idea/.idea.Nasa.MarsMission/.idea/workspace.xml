@@ -7,35 +7,70 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/DeployedFleetBase.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/ITerrainDetails.cs" />
-      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/ICommandFleet.cs" />
-      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/IDeployedFleet.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/BaseCommandFleet.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/ITerrainSize.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Agent/IMover.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Agent/IRotator.cs" />
-      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Description/Terrain/ITerrainSize.cs" />
-      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/IRoverFleet.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Description/IRoverDetails.cs" />
-      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/ICommandFleet.cs" />
-      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/IDeployedFleet.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Agent/CommandType.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Agent/Command.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Agent/ActionType.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Agent/Action.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Agent/RoverAction.cs" />
-      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Basic/BasicFleet.cs" />
-      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Agent/IRover.cs" />
-      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/IDeployedRover.cs" />
-      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Description/IRoverLocation.cs" />
-      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/BaseCommandFleet.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Test/UnitTest1.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Basic/CartesianFlatRover.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Description/Terrain/ITerrainSize.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/CommandType.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/BaseCommandFleet.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/BaseDeployedRover.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/DeployedRoverBase.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Basic/DeployedRoverBase.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/IDeployedRover.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Description/IRoverLocation.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/ICommandFleet.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Agent/IRover.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/DeployedRoverBase.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/IDeployedRover.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/IRoverFleet.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Agent/IDeployedRover.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Description/Terrain/ITerrain.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/CommandReceiverBase.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/CommandFleetBase.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/ICommandReceiver.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/IInputReceiver.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/InputReceiverBase.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/IDeployedFleet.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/RoverFleetBase.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Basic/BasicRoverFleetBase.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Basic/RoverFleetBase.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/FleetCommand.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/InstructionType.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/FleetInstruction.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Basic/BasicGridTerrain.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Description/RoverLocation.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Basic/OrientationHelpers.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Basic/BasicRover.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Basic/Helpers/OrientationHelpers.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Test/BasicRoverTest.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Basic/SurfaceRoverBase.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Agent/DeployedRoverBase.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Basic/BasicFleet.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/DeployedFleetBase.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Basic/RoverLocation.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Test/BasicFleetTest.cs" />
     </changedPaths>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -45,6 +80,7 @@
     <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34991708" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.30016583" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="RiderNuGetOptionsPageId" />
   </component>
   <component name="TaskManager">
