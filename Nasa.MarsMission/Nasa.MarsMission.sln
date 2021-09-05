@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nasa.MarsMission.Rovers.Cor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nasa.MarsMission.Rovers.Basic", "Nasa.MarsMission.Rovers.Basic\Nasa.MarsMission.Rovers.Basic.csproj", "{C3F7A49F-2E84-439F-A4CD-E9680BA3C2ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nasa.MarsMission.Rovers.Test", "Nasa.MarsMission.Rovers.Test\Nasa.MarsMission.Rovers.Test.csproj", "{C9F82E95-5BF1-49E2-9B71-0C5E76B0CF01}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{C3F7A49F-2E84-439F-A4CD-E9680BA3C2ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3F7A49F-2E84-439F-A4CD-E9680BA3C2ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3F7A49F-2E84-439F-A4CD-E9680BA3C2ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9F82E95-5BF1-49E2-9B71-0C5E76B0CF01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9F82E95-5BF1-49E2-9B71-0C5E76B0CF01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9F82E95-5BF1-49E2-9B71-0C5E76B0CF01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9F82E95-5BF1-49E2-9B71-0C5E76B0CF01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

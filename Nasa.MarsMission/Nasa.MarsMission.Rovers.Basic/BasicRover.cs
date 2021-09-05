@@ -1,10 +1,13 @@
 ﻿using System;
+using Nasa.MarsMission.Rovers.Core.Fleet;
 
 namespace Nasa.MarsMission.Rovers.Basic
 {
-    public class BasicRover : CartesianFlatRover
+    public class BasicRover : BaseDeployedRover
     {
-        protected override int[] GetTranslation(int magnitude)
+        private int _bearing;
+        
+        public override int[] Move(int magnitude)
         {
             // we could process negatives, but given the basic implementation, we'll simply throw
             if (magnitude < 1)
@@ -14,46 +17,63 @@ namespace Nasa.MarsMission.Rovers.Basic
                     nameof(magnitude));
             }
 
-            return Bearing switch
+            var vector = Bearing switch
             {
                 0 =>
                     // east
-                    new[] {1, 0},
+                    new[] {magnitude, 0},
                 90 =>
                     // north
-                    new[] {0, 1},
+                    new[] {0, magnitude},
                 180 =>
                     // west
-                    new[] {-1, 0},
+                    new[] {-magnitude, 0},
                 270 =>
                     // south
-                    new[] {0, -1},
+                    new[] {0, -magnitude},
                 _ => throw new InvalidOperationException(
                     $"Current bearing does not correspond to a compass direction. Current bearing: {Bearing}")
             };
+
+            Position[0] += vector[0];
+            Position[1] += vector[1];
+
+            return Position;
         }
 
-        protected override int CalculateBearing(int angleOfRotation)
+        public override int Rotate(int angleOfRotation)
         {
-            // while we could process values outside this range, they are probably given in error,
-            // therefore it's safer to throw. Turning -270 degrees to turn left is a waste of solar!
-            if (angleOfRotation != 90 && angleOfRotation != -90)
+            if (angleOfRotation % 90 != 0)
             {
-                throw new ArgumentException(
-                    $"Angle of rotation must be -90 or 90 degrees. Angle of rotation: {angleOfRotation}",
+                throw new ArgumentOutOfRangeException(
+                    $"Angle of rotation must be multiple of 90. Angle of rotation: {angleOfRotation}",
                     nameof(angleOfRotation));
             }
 
-            // calculate the equivalent anticlockwise rotation angle
-            var acRotation = angleOfRotation < 0 ? 360 - angleOfRotation : angleOfRotation;
+            return Bearing = NormalizeAngle(Bearing + angleOfRotation);
+        }
 
-            // add it to the current bearing
-            Bearing += acRotation;
+        public override int Bearing
+        {
+            get => _bearing;
+            // ensure bearing is 0 - 360
+            set => _bearing = NormalizeAngle(value);
+        }
+
+        public override int[] Position { get; set; } = {0, 0};
+
+        private static int NormalizeAngle(int angle)
+        {
+            // normalize to -359 to 359
+            angle %= 360;
             
-            // get the remainder from 360 to get the bearing
-            Bearing %= 360;
+            // if its negative, add 360 to give the coterminal angle (equiv. between 0 and 359)
+            if (angle < 0)
+            {
+                angle += 360;
+            }
 
-            return Bearing;
+            return angle;
         }
     }
 }

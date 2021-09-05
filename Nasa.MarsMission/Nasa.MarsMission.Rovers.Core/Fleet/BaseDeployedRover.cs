@@ -29,7 +29,7 @@ namespace Nasa.MarsMission.Rovers.Core.Fleet
         public string Designation { get; set; }
         public bool Ready { get; set; }
         public int CommandsProcessed { get; set; }
-        public int Bearing { get; set; }
-        public abstract int[] Position { get; set; }
+        public virtual int Bearing { get; set; }
+        public virtual int[] Position { get; set; }
     }
 }
