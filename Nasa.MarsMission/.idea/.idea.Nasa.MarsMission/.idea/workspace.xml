@@ -20,7 +20,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/BaseCommandFleet.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/BaseDeployedRover.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/DeployedRoverBase.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Basic/DeployedRoverBase.cs" />
@@ -54,7 +53,6 @@
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/FleetInstruction.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/InputReceiverBase.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/DeployedFleetBase.cs" />
-      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Test/BasicFleetTest.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Test/BasicRoverTest.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/IInputReceiver.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Airborne/Class1.cs" />
@@ -62,15 +60,17 @@
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Agent/ActionType.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Basic/ActionType.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Basic/SurfaceRoverBase.cs" />
-      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Airborne/ActionType.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Airborne/AirborneDrone.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Airborne/RoverAction.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Basic/BasicFleet.cs" />
-      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Airborne/DroneAction.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Airborne/BasicGridTerrain.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Airborne/DroneStatus.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Airborne/DroneAirspace.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Airborne/ActionType.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Airborne/DroneAction.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Airborne/AirborneFleet.cs" />
+      <option value="$PROJECT_DIR$/../README.md" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Test/BasicFleetTest.cs" />
     </changedPaths>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">

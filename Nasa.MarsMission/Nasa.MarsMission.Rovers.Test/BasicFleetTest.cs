@@ -18,7 +18,7 @@ namespace Nasa.MarsMission.Rovers.Test
         [InlineData(new[] {"10 10"}, new[] {""}, 0)]
         [InlineData(new[] {"20 20", "10 10 N"}, new[] {"10 10 N"}, 1)]
         [InlineData(new[] {"20 20", "10 10 N", "RMMM"}, new[] {"13 10 E"}, 1)]
-        // challenge i/o
+        // i/o specified in the exercise
         [InlineData(
             new[] {"5 5", "1 2 N", "LMLMLMLMM", "3 3 E", "MMRMMRMRRM"},  
             new[] {"1 3 N", "5 1 E"},
