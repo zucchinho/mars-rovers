@@ -1,8 +1,5 @@
-using System;
 using FluentAssertions;
 using Nasa.MarsMission.Rovers.Basic;
-using Nasa.MarsMission.Rovers.Core.Agent;
-using Nasa.MarsMission.Rovers.Core.Description;
 using Xunit;
 
 namespace Nasa.MarsMission.Rovers.Test

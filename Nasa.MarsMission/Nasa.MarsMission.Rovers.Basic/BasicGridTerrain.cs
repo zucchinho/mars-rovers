@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using Nasa.MarsMission.Rovers.Core.Description;
 using Nasa.MarsMission.Rovers.Core.Description.Terrain;
 
 namespace Nasa.MarsMission.Rovers.Basic

@@ -1,4 +1,4 @@
-namespace Nasa.MarsMission.Rovers.Core.Agent
+namespace Nasa.MarsMission.Rovers.Airborne
 {
     /// <summary>
     /// Possible types of action for a rover
@@ -8,7 +8,12 @@ namespace Nasa.MarsMission.Rovers.Core.Agent
         /// <summary>
         /// Move some specified magnitude on current bearing
         /// </summary>
-        Move,
+        Horizontal,
+        
+        /// <summary>
+        /// Travel vertically
+        /// </summary>
+        Vertical,
         
         /// <summary>
         /// Rotate by a specified angle of rotation

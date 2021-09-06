@@ -20,17 +20,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/BaseCommandFleet.cs" />
-      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/ITerrainSize.cs" />
-      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Agent/IMover.cs" />
-      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Agent/IRotator.cs" />
-      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Agent/CommandType.cs" />
-      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Agent/Command.cs" />
-      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Agent/Action.cs" />
-      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Test/UnitTest1.cs" />
-      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Basic/CartesianFlatRover.cs" />
-      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Description/Terrain/ITerrainSize.cs" />
-      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/CommandType.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/BaseCommandFleet.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/BaseDeployedRover.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/DeployedRoverBase.cs" />
@@ -54,12 +43,8 @@
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Basic/OrientationHelpers.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Basic/BasicRover.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Basic/Helpers/OrientationHelpers.cs" />
-      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Basic/SurfaceRoverBase.cs" />
-      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Basic/BasicFleet.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Basic/RoverLocation.cs" />
-      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Agent/ActionType.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Agent/RoverAction.cs" />
-      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/IInputReceiver.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Agent/IDeployedRover.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Agent/DeployedRoverBase.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Description/Terrain/ITerrain.cs" />
@@ -71,6 +56,21 @@
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Fleet/DeployedFleetBase.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Test/BasicFleetTest.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Test/BasicRoverTest.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/IInputReceiver.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Airborne/Class1.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Airborne/AirborneRoverStatus.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Core/Agent/ActionType.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Basic/ActionType.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Basic/SurfaceRoverBase.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Airborne/ActionType.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Airborne/AirborneDrone.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Airborne/RoverAction.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Basic/BasicFleet.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Airborne/DroneAction.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Airborne/BasicGridTerrain.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Airborne/DroneStatus.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Airborne/DroneAirspace.cs" />
+      <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Airborne/AirborneFleet.cs" />
     </changedPaths>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">

@@ -10,23 +10,6 @@ namespace Nasa.MarsMission.Rovers.Basic
     {
         private static readonly char[] PermittedChars = {'M', 'R', 'L'};
         private readonly RoverLocation _status = new RoverLocation();
-        
-        protected override void Execute(RoverAction action)
-        {
-            switch (action.Type)
-            {
-                case ActionType.Move:
-                    Move(action.Value);
-                    break;
-                case ActionType.Rotate:
-                    Rotate(action.Value);
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(
-                        nameof(action.Type),
-                        $"Unrecognized rover action type: {action.Type}");
-            }
-        }
 
         protected override IEnumerable<RoverAction> Interpret(string input)
         {
@@ -50,6 +33,23 @@ namespace Nasa.MarsMission.Rovers.Basic
                 };
 
                 yield return action;
+            }
+        }
+        
+        protected override void Execute(RoverAction action)
+        {
+            switch (action.Type)
+            {
+                case ActionType.Move:
+                    Move(action.Value);
+                    break;
+                case ActionType.Rotate:
+                    Rotate(action.Value);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(
+                        nameof(action.Type),
+                        $"Unrecognized rover action type: {action.Type}");
             }
         }
         

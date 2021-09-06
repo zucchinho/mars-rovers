@@ -1,14 +1,14 @@
-namespace Nasa.MarsMission.Rovers.Core.Agent
+namespace Nasa.MarsMission.Rovers.Airborne
 {
     /// <summary>
-    /// Represents a discrete action for a rover to perform
+    /// Represents a discrete action for a drone to perform
     /// </summary>
-    public class RoverAction
+    public class DroneAction
     {
         /// <summary>
         /// The relevant value e.g. a magnitude
         /// </summary>
-        public int Value { get; set; }
+        public double Value { get; set; }
         
         /// <summary>
         /// The type of action to perform e.g. Move

@@ -1,6 +1,4 @@
-﻿using Nasa.MarsMission.Rovers.Core.Description;
-
-namespace Nasa.MarsMission.Rovers.Core
+﻿namespace Nasa.MarsMission.Rovers.Core
 {
     /// <summary>
     /// Represents an entity which will receive input

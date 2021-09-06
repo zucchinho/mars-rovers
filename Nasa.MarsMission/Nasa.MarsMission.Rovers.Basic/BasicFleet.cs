@@ -9,8 +9,8 @@ namespace Nasa.MarsMission.Rovers.Basic
 {
     public class BasicFleet : DeployedFleetBase<BasicRover, RoverLocation, BasicGridTerrain>
     {
-        protected override Regex DeployRoverPattern => new Regex(@"^\d+ \d+ [NESW]{1}$");
-        protected override Regex InstructRoverPattern => new Regex(@"^[LRM]+$");
+        protected override Regex DeployRoverPattern { get; } = new Regex(@"^\d+ \d+ [NESW]$");
+        protected override Regex InstructRoverPattern { get; } = new Regex(@"^[LRM]+$");
         
         protected override BasicRover GetRoverInstance(RoverLocation roverStatus)
         {
