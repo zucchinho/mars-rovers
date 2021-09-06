@@ -69,8 +69,8 @@
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Airborne/ActionType.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Airborne/DroneAction.cs" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Airborne/AirborneFleet.cs" />
-      <option value="$PROJECT_DIR$/../README.md" />
       <option value="$PROJECT_DIR$/Nasa.MarsMission.Rovers.Test/BasicFleetTest.cs" />
+      <option value="$PROJECT_DIR$/../README.md" />
     </changedPaths>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">

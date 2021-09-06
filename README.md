@@ -26,6 +26,20 @@ Here you can see the Rover and the Fleet respectively processing viable input, a
 produced the correct output, as required in the challenge. The specific input/output
 scenario specified in the test is marked with a comment, in the BasicFleetTest class.
 
+## To build and run the code
+
+This is a .NET library, to build it open the solution in Visual Studio
+(or similar IDE e.g. Jetbrains Rider) and build. Or you can build from the 
+command line via running "dotnet build" in the solution directory.
+
+To run the unit tests, either in an open IDE using the integrated test
+UI or via the command line with "dotnet test" in the solution directory.
+
+You should have .NET Core installed, normally this will come as an option
+on Visual Studio. Otherwise can be downloaded here:
+
+https://dotnet.microsoft.com/download/dotnet/3.1
+
 ## What could come next?
 
 While completing the exercise, I considered some 
