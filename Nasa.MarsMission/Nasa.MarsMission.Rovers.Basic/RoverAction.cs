@@ -9,7 +9,7 @@ namespace Nasa.MarsMission.Rovers.Basic
         /// The relevant value e.g. a magnitude
         /// </summary>
         public int Value { get; set; }
-        
+
         /// <summary>
         /// The type of action to perform e.g. Move
         /// </summary>

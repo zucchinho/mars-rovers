@@ -9,12 +9,12 @@ namespace Nasa.MarsMission.Rovers.Core.Fleet
         /// Specify the terrain for exploration
         /// </summary>
         SetTerrain,
-        
+
         /// <summary>
         /// Deploy a rover to the environment
         /// </summary>
         DeployRover,
-        
+
         /// <summary>
         /// Issue a deployed rover with an instruction
         /// </summary>

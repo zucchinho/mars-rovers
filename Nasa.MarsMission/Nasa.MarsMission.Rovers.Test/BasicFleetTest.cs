@@ -20,7 +20,7 @@ namespace Nasa.MarsMission.Rovers.Test
         [InlineData(new[] {"20 20", "10 10 N", "RMMM"}, new[] {"13 10 E"}, 1)]
         // i/o specified in the exercise
         [InlineData(
-            new[] {"5 5", "1 2 N", "LMLMLMLMM", "3 3 E", "MMRMMRMRRM"},  
+            new[] {"5 5", "1 2 N", "LMLMLMLMM", "3 3 E", "MMRMMRMRRM"},
             new[] {"1 3 N", "5 1 E"},
             2)]
         public void Receive_should_correctly_interpret_commands(

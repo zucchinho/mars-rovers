@@ -27,14 +27,14 @@ namespace Nasa.MarsMission.Rovers.Core
 
             return this;
         }
-        
+
         /// <summary>
         /// Interprets input as a sequence of executable segments
         /// </summary>
         /// <param name="input">The input object.</param>
         /// <returns>The executable segments.</returns>
         protected abstract IEnumerable<TExecutable> Interpret(TInput input);
-        
+
         /// <summary>
         /// Executes a defined segment of input
         /// </summary>

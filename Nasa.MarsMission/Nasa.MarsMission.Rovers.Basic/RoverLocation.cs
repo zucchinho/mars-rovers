@@ -8,7 +8,7 @@ namespace Nasa.MarsMission.Rovers.Basic
         /// Coordinates [x,y] representing the rover's current position
         /// </summary>
         public int[] Position { get; set; } = {0, 0};
-        
+
         /// <summary>
         /// Degree value representing rover's current bearing
         /// </summary>

@@ -9,7 +9,7 @@ namespace Nasa.MarsMission.Rovers.Core.Fleet
         /// The type of instruction e.g. DeployRover
         /// </summary>
         public InstructionType Type { get; set; }
-        
+
         /// <summary>
         /// The content of the instruction e.g. "0 1 S" for deployed rover status
         /// </summary>

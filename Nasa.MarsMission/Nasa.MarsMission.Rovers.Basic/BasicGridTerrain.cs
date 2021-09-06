@@ -7,7 +7,7 @@ namespace Nasa.MarsMission.Rovers.Basic
     public class BasicGridTerrain : ITerrain<RoverLocation>
     {
         private int[] _dimensions;
-        
+
         public int[] Dimensions
         {
             get => _dimensions;
@@ -35,7 +35,7 @@ namespace Nasa.MarsMission.Rovers.Basic
                 _dimensions = value;
             }
         }
-        
+
         public bool IsOutOfBounds(RoverLocation roverStatus)
         {
             if (Dimensions == null)
@@ -45,7 +45,7 @@ namespace Nasa.MarsMission.Rovers.Basic
             }
 
             var position = roverStatus.Position;
-            
+
             if (position == null)
             {
                 throw new ArgumentNullException(nameof(position));
@@ -54,7 +54,7 @@ namespace Nasa.MarsMission.Rovers.Basic
             if (position.Length != Dimensions.Length)
             {
                 throw new ArgumentException(
-                    $"The number of positional dimensions must be {Dimensions.Length}. Received: {position.Length}", 
+                    $"The number of positional dimensions must be {Dimensions.Length}. Received: {position.Length}",
                     nameof(position));
             }
 
